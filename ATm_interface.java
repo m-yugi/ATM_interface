@@ -7,7 +7,7 @@ class ATM {
     long account_number;
     long balance = 10000;
     int limit = 1;
-    int w_count=1,d_count=1,t_count=1;
+    int count=1;
     HashMap<String, Integer> hm = new HashMap<>();
     Scanner sc = new Scanner(System.in);
 
@@ -50,12 +50,12 @@ class ATM {
             switch (n) {
                 case 1:
                     System.out.println("please enter the amount to withdraw: ");
-                    int amount = sc.nextInt();
+                    int amount = Integer.parseInt(sc.nextLine());
                     withdraw(amount);
                     break;
                 case 2:
                     System.out.println("please enter the amount you want to deposit: ");
-                    int amount_w = sc.nextInt();
+                    int amount_w = Integer.parseInt(sc.nextLine());
                     deposit(amount_w);
                     break;
                 case 3:
@@ -78,6 +78,7 @@ class ATM {
                     System.out.println("your account balance "+this.balance);
                     break;
                 case 6:
+                     System.out.println("thanks for using our services");
                     return;
                 default:
                     System.out.println("please select a valid operation");
@@ -88,8 +89,8 @@ class ATM {
 
     public void deposit(int amount_w) {
         this.balance+=amount_w;
-        System.out.println(amount_w+"has been credited to your account");
-        hm.put(this.d_count++ +"."+"credited",amount_w);
+        System.out.println(amount_w+" has been credited to your account");
+        hm.put(this.count++ +"."+"credited",amount_w);
     }
 
     public void withdraw(int amount) {
@@ -99,12 +100,12 @@ class ATM {
         }
         this.balance-=amount;
         System.out.println(amount+" has been debited from your account");
-        hm.put(this.w_count++ +"."+"debited",amount);
+        hm.put(this.count++ +"."+"debited",amount);
     }
     public void transfer(String name, int amount){
         this.balance-=amount;
         System.out.println(amount+" had been transferred to "+name);
-        hm.put(this.t_count++ +"."+"transferred to "+name,amount);
+        hm.put(this.count++ +"."+"transferred to "+name,amount);
     }
 }
 public class ATm_interface {
