@@ -135,9 +135,8 @@ public class ATm_interface {
                     if(user.validate()){
                         user.user_menu();
                     }
-                    else {
-                        System.out.println("thanks visit again");
-                    }
-                }
+                }else {
+                   System.out.println("thanks visit again");
+                 }
         }
     }
